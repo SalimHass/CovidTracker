@@ -1,8 +1,40 @@
+
 .home-hero{
-    background-color: aqua;
-    margin: 15px;
+    background-color: var(--base-color2);
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
 }
+
+.total-title{
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.total-container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.total-card{
+    padding: 15px 10px;
+    background-color: var(--base-color3);
+    color: var(--base-color-white);
+}
+
+.form-title{
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.select-form{
+    display: flex;
+    column-gap: 2px;
+    
+}
+
 .sbtn{
-    background-color: black;
-    margin: 25px;
+    border-radius: 0px;
+    background-color: var(--base-color-search-btn);
 }

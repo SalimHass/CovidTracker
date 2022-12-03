@@ -5,8 +5,8 @@ import {
   useGetCountryListQuery,
 } from "../../services/covidRecords";
 import Form from "react-bootstrap/Form";
-import Button from 'react-bootstrap/Button';
-import "./Home.css"
+import Button from "react-bootstrap/Button";
+import "./Home.css";
 
 function Home() {
   const {
@@ -14,7 +14,6 @@ function Home() {
     error: totalError,
     isLoading: isTotalLoading,
   } = useGetWorldTotalQuery();
-  console.log(totalData)
   const [
     trigger,
     {
@@ -23,16 +22,15 @@ function Home() {
       isLoading: isCountryDataLoading,
     },
   ] = useLazyGetCountryDetailQuery();
+ 
 
-  if (!isCountryDataLoading) console.log(countryData);
   async function handleDetailSubmit(e) {
     e.preventDefault();
-    /* await trigger({
+     await trigger({
       name: e.target["country"].value,
       start: e.target["from"].value,
       end: e.target["to"].value,
-    }); */
-   
+    }); 
   }
   const {
     data: countryListData,
@@ -40,23 +38,35 @@ function Home() {
     isLoading: isCountryListLoading,
   } = useGetCountryListQuery();
 
-  
   const countryArray = countryListData?.map((e) => (
-    <option value={e.Slug} key={e.Slug}>{e.Country}</option>
+    <option value={e.Slug} key={e.Slug}>
+      {e.Country}
+    </option>
   ));
 
-  const totalCovidArr =<div>
-    TotalConfirmed:{totalData?.TotalConfirmed},TotalDeaths:{totalData?.TotalDeaths},TotalRecovered:{totalData?.TotalRecovered}
-  </div>
+  const totalCovidArr = (
+    <div className="total-container">
+      <div className="total-card">
+        TotalConfirmed: {totalData?.TotalConfirmed}
+      </div>
+      <div className="total-card">TotalDeaths: {totalData?.TotalDeaths}</div>
+      <div className="total-card">
+        TotalRecovered: {totalData?.TotalRecovered}
+      </div>
+    </div>
+  );
+
   return (
     <div className="home-hero">
+      <div className="total-title">World Total Statisitcs</div>
+
       {totalCovidArr}
-      <form onSubmit={handleDetailSubmit}>
-        <label>Country</label>
+      <div className="form-title">Get Statisitcs for a specific country</div>
+      <form className="select-form" onSubmit={handleDetailSubmit}>
         <Form.Select aria-label="Default select example" id="country">
           {countryArray}
         </Form.Select>
-        <label>from</label>
+
         <Form.Control
           id="from"
           type="date"
@@ -64,15 +74,15 @@ function Home() {
           placeholder="Due date"
         />
 
-        <label>to</label>
         <Form.Control
           id="to"
           type="date"
           name="duedate"
           placeholder="Due date"
         />
-        <Button className="sbtn">Submit</Button>
+        <Button className="sbtn">Search</Button>
       </form>
+      {countryData? console.log(countryData):  <>nodata</>}
     </div>
   );
 }

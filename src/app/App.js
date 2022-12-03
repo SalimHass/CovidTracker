@@ -1,7 +1,8 @@
 import './App.css';
-import Home from '../component/home/Home'
 import Navbar from '../component/navbar/Navbar'
 import { Outlet } from 'react-router';
+import Footer from '../component/footer/Footer';
+
 
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
     <div className="App">
       <Navbar/>
       <Outlet/>
+      <Footer/>
+      
      
    
     </div>

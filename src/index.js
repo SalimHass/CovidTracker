@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./component/home/Home";
 import AllCountries from "./component/allCountries/AllCountries";
+import { MyRecords } from "./component/myRecords/MyRecords";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
           <Route path="/" element={<App />}>
             <Route path="/" element={<Home />} />
             <Route path="/allCountries" element={<AllCountries />} />
+            <Route path="/myRecords" element={<MyRecords />} />
           </Route>
         </Routes>
       </BrowserRouter>
