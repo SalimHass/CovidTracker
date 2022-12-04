@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./component/home/Home";
 import AllCountries from "./component/allCountries/AllCountries";
 import { MyRecords } from "./component/myRecords/MyRecords";
+import ErrorPage from "./component/errorPage/ErrorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,8 @@ root.render(
             <Route path="/allCountries" element={<AllCountries />} />
             <Route path="/myRecords" element={<MyRecords />} />
           </Route>
+          <Route path="/errorPage" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>

@@ -18,17 +18,6 @@ export const covidApi = createApi({
     getCountryList: builder.query({
         query: () => `countries`,
       }),
-    updatePokemon: builder.mutation({
-      query: ({ name, patch }) => ({
-        url: `pokemon/${name}`,
-        // When performing a mutation, you typically use a method of
-        // PATCH/PUT/POST/DELETE for REST endpoints
-        method: 'PATCH',
-        // fetchBaseQuery automatically adds `content-type: application/json` to
-        // the Headers and calls `JSON.stringify(patch)`
-        body: patch,
-      }),
-    }),
   }),
 })
 

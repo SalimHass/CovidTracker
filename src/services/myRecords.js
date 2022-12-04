@@ -21,7 +21,14 @@ export const myRecordApi = createApi({
       }),
       invalidatesTags: ['Request'],
     }),
+    deleteCovidRecord: builder.mutation({
+      query: (id) => ({
+        url: `api/myCovidRecord/${id}`,
+        method: 'Delete',
+      }),
+      invalidatesTags: ['Request'],
+    }),
   }),
 })
 
-export const { useGetMyRecordsQuery,useAddCovidRecordMutation} = myRecordApi
+export const { useGetMyRecordsQuery,useAddCovidRecordMutation,useDeleteCovidRecordMutation} = myRecordApi
