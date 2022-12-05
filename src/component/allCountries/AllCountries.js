@@ -6,14 +6,13 @@ import {
   useGetMyRecordsQuery,
 } from "../../services/myRecords";
 import "./AllCountries.css";
-import { useNavigate } from "react-router";
 import { getCurrentBrowserFingerPrint } from "@rajesh896/broprint.js";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 
 function AllCountries() {
   const unique_id = useRef("");
-  const navigate = useNavigate();
+  
 
   getCurrentBrowserFingerPrint().then((fingerprint) => {
     // fingerprint is your unique browser id.
