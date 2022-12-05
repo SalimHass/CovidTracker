@@ -10,8 +10,11 @@ function MyRecordCard(props) {
 
             <div className='rec-title'>Country: {props.record.country_name} </div>
             <div className='rec-date'>Date: {props.record.date} </div>
+            <div className='btn-dash-container'>
+
             <div className='rec-card-dashedline' />
-            <Button className='del-btn' onClick={() => props.removeRecordFunc(props.record)}>Delete</Button>
+            <Button className='del-btn' onClick={() => props.removeRecordFunc(props.record)}>DELETE</Button>
+            </div>
             </div>
         </div>
     )
