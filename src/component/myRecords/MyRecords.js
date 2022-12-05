@@ -3,6 +3,7 @@ import {useDeleteCovidRecordMutation, useGetMyRecordsQuery} from "../../services
 import MyRecordCard from "../myRecordCard/MyRecordCard";
 import Spinner from 'react-bootstrap/Spinner';
 import {useNavigate} from "react-router";
+import "./MyRecords.css"
 
 export const MyRecords = () => {
     const navigate = useNavigate();
@@ -28,14 +29,17 @@ export const MyRecords = () => {
     }
 
     return (
-        <div className="countries-hero">
+        <div className="rec-hero">
+            
             {isMyRecordsLoading || isDeleteLoading ?
                 <Spinner className={"loading"} animation="border" role="status"/>
                 :
                 <>
-                    My Records
-                    <div className="countries-container">{myRecordsArray} </div>
-                </>}
+                    {myRecordsArray.length>0? <div className="rec-main-title"> COVID19 Statistics For All Countries</div>:<></> }
+                <div className="rec-cards-container">
+                    {myRecordsArray.length>0? myRecordsArray : <div className="no-recs">No Available Records</div> } 
+                
+                </div></>}
         </div>
 
 

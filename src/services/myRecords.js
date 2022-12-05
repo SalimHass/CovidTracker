@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const myRecordApi = createApi({
   // Set the baseUrl for every endpoint below
   reducerPath: 'myRecordApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://covid-track-backend.onrender.com/' }),
   tagTypes: ['Request'],
   endpoints: (builder) => ({
     getMyRecords: builder.query({

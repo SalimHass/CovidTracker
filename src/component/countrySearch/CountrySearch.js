@@ -4,7 +4,8 @@ import React, {useState} from "react";
 import {useLazyGetCountryDetailQuery} from "../../services/covidRecords";
 import Spinner from "react-bootstrap/Spinner";
 import {useNavigate} from "react-router";
-
+import CountryDayCard from "../countryDayCard/CountryDayCard";
+import "./CountrySearch.css"
 
 function CountrySearch(props) {
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ function CountrySearch(props) {
         e.preventDefault();
         let toDate = new Date(e.target["to"].value);
         setValidDate(toDate > new Date(e.target["from"].value))
-        if (validDate) {
+        if (toDate > new Date(e.target["from"].value)) {
             trigger({
                 name: e.target["country"].value,
                 start: new Date(e.target["from"].value).toISOString().split(".")[0],
@@ -36,6 +37,8 @@ function CountrySearch(props) {
     if (CountryDataError) {
         navigate('/errorPage', {state: CountryDataError})
     }
+
+    const dayCards= countryData?.map(e=> <CountryDayCard data={e}/> ) 
 
     return <>
         <form className="select-form" onSubmit={handleDetailSubmit}>
@@ -66,8 +69,11 @@ function CountrySearch(props) {
             />
             <Button type={"submit"} className="sbtn">Search</Button>
         </form>
+        <div className="days-cards">
+
         {isCountryDataLoading ? <Spinner className={"loading"} animation="border" role="status"/> :
-            countryData ? JSON.stringify(countryData) : <>nodata</>}
+            countryData ? dayCards : <></>}
+        </div>
 
     </>;
 }

@@ -1,4 +1,4 @@
-.rec-card{
+.day-card{
     display: grid;
     grid-template-columns: 10px 1fr;
     box-shadow: 0px 1px 4px var(--base-color-nav);
@@ -6,13 +6,13 @@
     width: 270px;
 
 }
-.rec-container{
+.day-container{
     display: flex;
     flex-direction: column;
     align-items: center;
  }
 
- .rec-title{
+ .day-title{
     padding: 10px;
     color: var(--base-color3);
     font-weight: 500;
@@ -21,12 +21,12 @@
     
  }
 
- .rec-date{
+ .day-cases{
     position: relative;
     font-size: 12px;
  }
 
- .rec-card-dashedline{
+ .day-dashedline{
     margin-top:20px ;
     border-bottom: 1px gray dashed;
     width: 100%;
@@ -34,15 +34,7 @@
     margin-bottom: 10px;
  }
 
-.rec-color{
+.day-color{
     background-color: var(--base-color3);
     height: 100%;
 }
-
-.del-btn{
-    border-radius: 0;
-    background-color: var(--base-color-search-btn);
-    margin-bottom: 15px;
-    margin-top: 5px;
-}
-
