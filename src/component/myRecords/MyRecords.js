@@ -31,8 +31,10 @@ export const MyRecords = () => {
     return (
         <div className="rec-hero">
             
-            {isMyRecordsLoading || isDeleteLoading ?
+            {isMyRecordsLoading || isDeleteLoading ? <div className="loading-spinner">
+
                 <Spinner className={"loading"} animation="border" role="status"/>
+            </div>
                 :
                 <>
                     {myRecordsArray.length>0? <div className="rec-main-title"> COVID19 Statistics For All Countries</div>:<></> }

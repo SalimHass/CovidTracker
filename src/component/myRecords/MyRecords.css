@@ -21,3 +21,8 @@
     font-weight: 500;
     padding: 50px 0px;
 }
+
+.loading-spinner{
+   
+    justify-self: center;
+}
