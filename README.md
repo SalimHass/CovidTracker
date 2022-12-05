@@ -6,7 +6,7 @@ this App shows several covid statistics , with the ability to see data for each 
 
 
 ## Run 
-1. make sure backend is running https://github.com/SalimHass/CovidTracker-Backend
+1. make sure backend is running on https://covid-track-backend.onrender.com/api/ Or check https://github.com/SalimHass/CovidTracker-Backend
 2. download project
 3. run `npm install`
 4. modify baseUrl in "services.myRecords" as/if needed
